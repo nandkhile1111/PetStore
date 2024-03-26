@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+</head>
+<body>
+    
+    <div class="container mt-3">
+    {% for d in d %}
+
+    <form method="post" class="col-6 mx-auto card card-body my-3" enctype="multipart/form-data">
+            {% csrf_token %}
+        <h1 class="my-3">Update Product</h1>
+        <hr>
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter the Product Name" value="{{d.name}}">
+
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" placeholder="Enter the Product price" value="{{d.price}}">
+
+        <label class="form-label">Detaiil</label>
+        <textarea class="form-control" name="detail" rows="3" placeholder="Enter the Details About Product">{{d.detail}}</textarea>
+
+        <label class="form-label">Category</label>
+        <input type="text" class="form-control" name="category" placeholder="Enter the Product Category" value="{{d.category}}">
+
+        <label class="form-label">Image</label>
+        <input type="file" class="form-control" name="pimage">
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary my-3">Update Product</button>
+        </div>
+    </form>
+        {% endfor %}
+
+
+    </div>
+</body>
+</html>

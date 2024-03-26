@@ -1,0 +1,61 @@
+
+{% extends 'base.html' %}
+
+    {% block body %}
+        <div class=" container mt-5 col-6 card bg-light p-5">
+            <h2 class="text-dark">Register</h2>
+            <hr>
+            {% if messages %}
+                <div id="alert-container" class="alert alert-info" role="alert">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+    
+                <script>
+                    // Add a script to automatically dismiss the alert after 2000 milliseconds (2 seconds)
+                    setTimeout(function() {
+                        document.getElementById('alert-container').style.display = 'none';
+                    }, 5000);
+                </script>
+            {% endif %}
+    
+           
+            <div class="container">
+            <form method="POST" action="">
+                {% csrf_token %}
+        
+                <label for="email">Email</label>
+                <div class="form-group">
+                    <input type="email" class="form-control p-2" id="email" name="email" >
+                </div>
+
+                <label for="username">Username</label>
+                <div class="form-group">
+                    <input type="text" class="form-control p-2" id="username" name="username" >
+                </div>
+        
+                <label for="pass1">Password</label>
+                <div class="form-group">
+                    <input type="password" class="form-control p-2" id="pass1" name="pass1" >
+                </div>
+        
+                <label for="pass2"> Conform Password</label>
+                <div class="form-group">
+                    <input type="password" class="form-control p-2" id="pass2" name="pass2" >
+                </div>
+                <br>
+                <button type="submit" class="btn btn-dark">Register</button>
+                <br>
+                Already have an account? <a href="/handlelogin">Login</a>
+            </form>
+            </div>
+        
+        
+    
+        </div>
+    {% endblock body %}
+    
+    
+    
+    

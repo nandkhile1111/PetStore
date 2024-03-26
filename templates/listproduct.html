@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+<h2 class="text-center mt-3">PETS</h2>
+<div class="container card p-3 mt-3">
+<div class="row">
+  
+    {% for m in data %}
+    <div class="col-4 mb-3">
+      <div class="card" style="width: 18rem;">
+        <a href="petdetail/{{m.id}}">
+          <img class="card-img-top" src="{{m.image.url}}">
+          <div class="card-body">
+            <h5 class="card-title">{{m.name}}</h5>
+            <h5 class="card-title">{{m.price}}</h5>
+            <a href="#" class="btn btn-primary">Add To Cart</a>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock body %}

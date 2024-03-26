@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+<h2 class="text-center mt-3">PETS</h2>
+<div class="container card p-3 mt-3">
+    <div class="row">
+  
+        {% for m in pdata %}
+        <div class="col-6 mb-3">
+        <img class="card-img-top" src="{{m.image.url}}">
+        </div>
+
+        <div class="col-6">
+            <div class="card-body">
+                <h1 class="card-title">{{m.name}}</h1>
+                <h5 class="card-title">{{m.price}}</h5>
+                
+                <p>{{m.detail}}</p>
+                <a href="#" class="btn btn-primary">Add To Cart</a>
+                {% for c in icdata %}
+                    <h5 class="card-title">{{c.name}}</h5>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}
